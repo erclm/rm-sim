@@ -13,6 +13,9 @@ public class Scheduler extends java.lang.Thread{
     private int overrun3 = 0;
     private int overrun4 = 0;
 
+
+    //This scheduler does not have a run because it's running when its initialized.
+    //all thie scheduler does is it runs the threads, it acts like a function to get the results.
     public Scheduler(){
         this.t1 = new workThread(1, 2);
         this.t2 = new workThread(2, 3);
@@ -27,7 +30,6 @@ public class Scheduler extends java.lang.Thread{
 
         schedule();
         killThreads();
-
     }
 
     public void schedule(){

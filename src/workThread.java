@@ -10,8 +10,7 @@ public class workThread extends Thread {
     private int[] doWorkOrder = {1,3,5,7,9,0,2,4,6,8};
     private boolean forceQuit = false;
 
-    public workThread(int runCountTemp, int priorityTemp)
-    {
+    public workThread(int runCountTemp, int priorityTemp) {
         this.completions = 0;
         this.runCount = runCountTemp;
         this.priority = Thread.MAX_PRIORITY - priorityTemp;
@@ -23,27 +22,23 @@ public class workThread extends Thread {
         this.forceQuit = false;
     }
 
-    public boolean isDone()
-    {
+    public boolean isDone() {
         return this.done;
     }
 
-
-    public void doWork()
-    {
+    //doWork, does the matrix conversion by the doWorkOrder
+    public void doWork() {
         int temp = 0;
-        for(int rep = 0; rep < 1000000; ++rep)
-        {
-            for(int k = 0; k < 10; ++k)
-            {
+        for(int rep = 0; rep < 1000000; ++rep) {
+            for(int k = 0; k < 10; ++k) {
                 temp = doWorkOrder[k];
-                for(int j = 0; j < 10; ++j)
-                {
+                for(int j = 0; j < 10; ++j) {
                     doWorkMatrix[j][temp] = doWorkMatrix[k][j];
                 }
             }
         }
     }
+
     @Override
     public void run() {
         try {
@@ -70,8 +65,7 @@ public class workThread extends Thread {
         }
     }
 
-    public void doForceQuit()
-    {
+    public void doForceQuit() {
         this.forceQuit = true;
     }
 }
