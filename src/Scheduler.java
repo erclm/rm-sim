@@ -1,7 +1,6 @@
 import java.util.concurrent.Semaphore;
 
 public class Scheduler extends java.lang.Thread{
-    Semaphore sem;
     workThread t1;
     workThread t2;
     workThread t3;
